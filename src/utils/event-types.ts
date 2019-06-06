@@ -1,0 +1,10 @@
+//eventEmitter
+export const INITAUDIO = 'INITAUDIO'
+export const SWITCHPLAY = 'SWITCHPLAY'
+export const PLAYPERCENT = 'PLAYPERCENT'
+export const PLAYANIMATE = 'PLAYANIMATE'
+export const SWITCHORDER = 'SWITCHORDER'
+export const NEXT = 'NEXT'
+export const CREATESHUFFLE = 'CREATESHUFFLE'
+export const BATCHADD = 'BATCHADD'
+export const SWITCHPLAYLIST = 'SWITCHPLAYLIST'
