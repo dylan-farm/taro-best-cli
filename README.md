@@ -1,6 +1,11 @@
 # taro-best-cli
 
-**选型：taro + dva + immutable + mock-server + typescript**
+**选型：**
+- taro 
+- dva 
+- immutable 
+- mock-server  //TODO
+- typescript
 
 # git clone
 
