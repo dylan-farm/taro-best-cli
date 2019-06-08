@@ -1,7 +1,7 @@
 // log输出级别分为五种：debug,info,warn,error,fatal。
 import Taro from '@tarojs/taro'
-import { formatTime } from './common'
-import { stringify } from './serialize'
+import { formatTime } from '../../utils/common'
+import { stringify } from '../../utils/serialize'
 
 /**
  * （信息）在粗粒度级别上突出强调应用程序的运行过程，打印一些感兴趣的或者重要的信息。

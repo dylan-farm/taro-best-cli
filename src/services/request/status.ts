@@ -1,5 +1,3 @@
-
-
 // interface HTTP_STATUS_ITEM {
 //   code: number | string;
 //   message: string;

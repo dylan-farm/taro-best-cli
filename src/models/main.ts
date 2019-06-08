@@ -1,10 +1,6 @@
 import Action from "../utils/action";
 // import { setCacheData, getGlobalData } from "../utils";
-// import {
-//   getSongInfo as fetchSongInfo,
-//   getMusicUrl as fetchMusicUrl,
-//   getLyric as fetchLyric
-// } from "../services/index";
+import { getRecommendList } from "../services/index";
 import eventEmitter from "../utils/eventEmitter";
 import * as Events from "../constants/event-types";
 import Immutable from "seamless-immutable";
@@ -22,8 +18,10 @@ export default {
     }
   },
   effects: {
-    *fetchSongById({ payload }, { select, call, put }) {
+    *getRecommendList({ payload }, { select, call, put }) {
       try {
+        const res = yield call(getRecommendList)
+        console.log(res)
         const main = yield select(state => state.main);
       } catch (e) {
         console.error(e);

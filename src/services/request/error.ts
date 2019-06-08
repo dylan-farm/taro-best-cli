@@ -1,4 +1,4 @@
-import { getCurrentPageUrl, formatTime } from "@util/common.ts";
+import { getCurrentPageUrl, formatTime } from "../../utils/common";
 import Taro from "@tarojs/taro";
 
 // var fundebug = require("../libs/fundebug.0.8.2.min.js");
@@ -22,9 +22,9 @@ export const logError = (
     deviceInfo = Taro.getSystemInfoSync();
     device = JSON.stringify(deviceInfo);
   } catch (e) {
-    throwError(`ERROR：not support getSystemInfoSync api;`, e);
+    throwError(`support getSystemInfoSync api;`, e);
   }
-  throwError(`ERROR：${name}-${action};`, info);
+  throwError(`${name}-${action};`, info);
   // console.error(time, name, action, info, device);
   // 上报异常工具调用
   // let time = formatTime(new Date());
@@ -41,7 +41,7 @@ export const logError = (
  * @param reject
  */
 export const throwError = (
-  errMsg: string = `ERROR: 异常错误`,
+  errMsg: string = ` 异常错误`,
   data: object = {},
   reject?: any
 ): void => {

@@ -8,7 +8,7 @@ import { setGlobalData } from "./utils";
 import "./app.scss";
 import "./assets/icon.css";
 import store from "./store/index";
-const backgroundAudioManager = Taro.getBackgroundAudioManager();
+// const backgroundAudioManager = Taro.getBackgroundAudioManager();
 
 class App extends Component {
   config: Config = {
@@ -32,7 +32,7 @@ class App extends Component {
           iconPath: 'assets/image/logo.png',
         },
         {
-          pagePath: "pages/index/index",
+          pagePath: "pages/center/center",
           text: '中心',
           iconPath: 'assets/image/logo.png',
         },
@@ -42,7 +42,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    setGlobalData("backgroundAudioManager", backgroundAudioManager);
+    // setGlobalData("backgroundAudioManager", backgroundAudioManager);
   }
 
   componentDidShow() {}

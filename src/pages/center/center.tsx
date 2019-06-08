@@ -1,21 +1,26 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
-import { getCacheData } from "../../utils/index";
+import action from "../../utils/action";
 import Loading from "../../components/loading";
 
 import "./center.scss";
 
 interface CenterProps {
-  main: any
+  main: any;
+  dispatch: any;
 }
 
 const mapStateToProps = ({ main }) => ({
   main
 });
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch)=>({
+  dispatch
+});
 
-@connect(mapStateToProps, mapDispatchToProps)
+@connect(
+  mapStateToProps,
+)
 class Center extends Component<CenterProps, {}> {
   static options = {
     addGlobalClass: true
@@ -24,6 +29,10 @@ class Center extends Component<CenterProps, {}> {
     super(...arguments);
   }
 
+  componentDidShow() {
+    this.props.dispatch(action("main/getRecommendList"));
+    console.log(this.props);
+  }
   navigateTo(url: string) {
     Taro.navigateTo({ url: url });
   }

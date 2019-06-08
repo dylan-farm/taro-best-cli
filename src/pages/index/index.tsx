@@ -23,7 +23,6 @@ class Index extends Component<{}, IndexStates> {
     activeTab: 0,
     tabs: [...tabs]
   }
-  
   render() {
     return (
       <View className='play-wrapper wrapper'>

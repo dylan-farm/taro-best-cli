@@ -7,6 +7,8 @@
 - mock-server  //TODO
 - typescript
 
+# build setup
+
 # git clone
 
 \$ git clone https://github.com/dylan-farm/taro-best-cli
