@@ -3,7 +3,6 @@ import Taro, { Component, Config } from "@tarojs/taro";
 import { Provider } from "@tarojs/redux";
 
 import Index from "./pages/index/index";
-import { setGlobalData } from "./utils";
 
 import "./app.scss";
 import "./assets/icon.css";

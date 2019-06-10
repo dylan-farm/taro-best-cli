@@ -18,10 +18,11 @@
     "jsx": "preserve",
     "jsxFactory": "Taro.createElement",
     "allowJs": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "global.d.ts"
-    ]
+    "typeRoots": ["node_modules/@types", "global.d.ts"],
+    "paths": {
+      "@/components/*": ["./src/components/*"],
+      "@/utils/*": ["./src/utils/*"],
+    }
   },
   "compileOnSave": false
 }

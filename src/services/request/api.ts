@@ -17,10 +17,6 @@ class Request {
     method: "GET",
     header: { "content-type": "application/x-www-form-urlencoded", token: "" }
   };
-  // constructor(env: any) {
-  // this.env = env;
-  // this.defaultOptions;
-  // }
   /**
    * 检查http状态值
    * @param response

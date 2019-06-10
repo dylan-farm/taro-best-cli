@@ -1,8 +1,8 @@
 "use strict";
 const path = require('path')
 var config = {
-  projectName: "taro-music",
-  date: "2018-11-8",
+  projectName: "taro-best-cli",
+  date: "2019-06-08",
   designWidth: 750,
   sourceRoot: "src",
   outputRoot: "dist",
@@ -20,11 +20,11 @@ var config = {
   defineConstants: {},
   weapp: {},
   alias: {
-    "@components": path.resolve(__dirname, "..", "src/components"),
-    "@assets": path.resolve(__dirname, "..", "src/assets"),
-    "@utils": path.resolve(__dirname, "..", "src/utils"),
-    "@services": path.resolve(__dirname, "..", "src/services"),
-    "@store": path.resolve(__dirname, "..", "src/store"),
+    "@/components": path.resolve(__dirname, "..", "src/components"),
+    // "@assets": path.resolve(__dirname, "..", "src/assets"),
+    "@/utils": path.resolve(__dirname, "..", "src/utils"),
+    // "@services": path.resolve(__dirname, "..", "src/services"),
+    // "@store": path.resolve(__dirname, "..", "src/store"),
   },
   h5: {
     publicPath: "/",

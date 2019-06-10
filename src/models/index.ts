@@ -1,4 +1,4 @@
 import main from "./main";
-import modelExtend from "dva-model-extend";
-import { model } from "../utils/model";
-export default [main].map(m => modelExtend(model, m));
+import { model } from "./defaultModel";
+import extendModel from "./extendModel";
+export default [main].map(m => extendModel(model, m));

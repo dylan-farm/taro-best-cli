@@ -1,4 +1,5 @@
-export const model = {
+
+ export const model = {
   reducers: {
     updateState(state, { payload }) {
       return {

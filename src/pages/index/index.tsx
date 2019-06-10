@@ -1,7 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-// import { getCacheData, setCacheData } from '../../utils/index'
-
 import './index.scss'
 
 interface TabItem {
