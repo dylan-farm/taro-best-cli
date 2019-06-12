@@ -1,57 +1,26 @@
 import request from "./request/api";
 
-// 获取推荐歌单
-export function getRecommendList() {
+// getBooks
+export function getBooks() {
   return request.get({
     url: "/books"
   });
 }
-// 获取歌曲信息
-export function getSongInfo(data) {
+// getBooks
+export function getHotBooks() {
   return request.get({
-    url: "/song/detail",
-    data: data
+    url: "/books/hot"
   });
 }
-// 获取歌曲链接信息
-export function getMusicUrl(data) {
+// getBooks
+export function getRecommendBooks() {
   return request.get({
-    url: "/song/url",
-    data: data
+    url: "/books/recommend"
   });
 }
-// 获取歌词
-export function getLyric(data) {
+// getBooks
+export function getNewBooks() {
   return request.get({
-    url: "/lyric",
-    data: data
-  });
-}
-// 获取歌单列表
-export function getPlayList(data) {
-  return request.get({
-    url: "/playlist/detail",
-    data: data
-  });
-}
-// 获取最新单曲
-export function getNewSong(data) {
-  return request.get({
-    url: "/personalized/newsong",
-    data: data
-  });
-}
-// 获取专辑列表
-export function getAlbumList(data) {
-  return request.get({
-    url: "/top/album",
-    data: data
-  });
-}
-// 获取专辑详情
-export function getAlbumDetail(data) {
-  return request.get({
-    url: "/album",
-    data: data
+    url: "/books/new"
   });
 }

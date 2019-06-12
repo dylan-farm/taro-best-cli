@@ -21,7 +21,10 @@
     "typeRoots": ["node_modules/@types", "global.d.ts"],
     "paths": {
       "@/components/*": ["./src/components/*"],
-      "@/utils/*": ["./src/utils/*"],
+      "@/utils": ["./src/utils"],
+      "@/services": ["./src/services"],
+      "@/typings": ["./src/typings"],
+      "@/assets": ["./src/assets"]
     }
   },
   "compileOnSave": false

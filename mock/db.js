@@ -17,8 +17,24 @@ var allBooks = Mock.Random.shuffle([
  * 服务启动后db中的数据将不会改变
  */
 module.exports = {
-  books: allBooks,
-  "books-new": newBooks,
-  "books-hot": hotBooks,
-  "books-recommend": recommendBooks
+  books: {
+    code: 200,
+    data: allBooks,
+    message: "success"
+  },
+  "books-new": {
+    code: 200,
+    data: newBooks,
+    message: "success"
+  },
+  "books-hot": {
+    code: 200,
+    data: hotBooks,
+    message: "success"
+  },
+  "books-recommend": {
+    code: 200,
+    data: recommendBooks,
+    message: "success"
+  }
 };

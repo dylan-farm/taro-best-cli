@@ -1,33 +1,60 @@
-import Taro, { Component } from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import './index.scss'
+import Taro, { Component } from "@tarojs/taro";
+import { View } from "@tarojs/components";
+import Action from "@/utils/action";
+import "./index.scss";
+import { connect } from "@tarojs/redux";
+import Panel from "@/components/panel";
+import HorizonList from "@/components/horizon-list";
+import FakeSearchBar from "@/components/fake-search-bar";
 
 interface TabItem {
   id: number;
-  title: string
+  title: string;
 }
-const tabs: Array<TabItem> = [
-  {id: 0, title: '推荐歌单'},
-  {id: 1, title: '最新单曲'},
-  {id: 2, title: '新碟上架'},
-]
-
 interface IndexStates {
   activeTab: number;
-  tabs: Array<TabItem>
+  tabs: Array<TabItem>;
 }
-class Index extends Component<{}, IndexStates> {
-  state = {
-    activeTab: 0,
-    tabs: [...tabs]
+interface IndexProps {
+  newBooks: Array<object>;
+  hotBooks: Array<object>;
+  recommendBooks: Array<object>;
+  dispatch: any;
+}
+
+@connect(({ home }) => ({
+  ...home
+}))
+class Index extends Component<IndexProps, IndexStates> {
+  config = {
+    navigationBarTitleText: "首页"
+  };
+  componentDidMount(){
+    this.init()
+  }
+  init() {
+    const { dispatch } = this.props;
+    dispatch(Action("home/getNewBooks"));
+    dispatch(Action("home/getHotBooks"));
+    dispatch(Action("home/getRecommendBooks"));
+    console.log(this.props)
   }
   render() {
     return (
-      <View className='play-wrapper wrapper'>
-        Index
+      <View className="play-wrapper wrapper">
+        <FakeSearchBar />
+        <Panel title="新书速递" className="panel--first">
+          <HorizonList data={this.props.newBooks} />
+        </Panel>
+        <Panel title="近期热门" className="margin-top-lg">
+          <HorizonList data={this.props.hotBooks} />
+        </Panel>
+        <Panel title="为你推荐" className="margin-top-lg">
+          <HorizonList data={this.props.recommendBooks} />
+        </Panel>
       </View>
-    )
+    );
   }
 }
 
-export default Index
+export default Index;

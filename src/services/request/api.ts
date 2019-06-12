@@ -1,11 +1,10 @@
 import Taro from "@tarojs/taro";
 import { HTTP_STATUS } from "./status";
 import { logError, throwError } from "./error";
-import {getHost} from "./api.config";
+import { getHost } from "./api.config";
 
-const env = Taro.getEnv()
-const HOST = getHost(env)
-console.log(env,HOST)
+const env = Taro.getEnv();
+const HOST = getHost(env);
 class Request {
   private env = env;
   private HOST = HOST;
@@ -15,7 +14,10 @@ class Request {
     isShowLoading: false,
     loadingText: "正在加载",
     method: "GET",
-    header: { "content-type": "application/x-www-form-urlencoded", token: "" }
+    header: {
+      "content-type": "application/x-www-form-urlencoded",
+      token: "",
+    }
   };
   /**
    * 检查http状态值
@@ -23,10 +25,11 @@ class Request {
    * @returns {*}
    */
   private checkHttpStatus(response: API.Response) {
-    console.log("response", response);
+    // console.log("response", response);
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return response.data;
     }
+
     const { statusCode, errMsg } = response;
     const { code, message } = Object.values(HTTP_STATUS).filter(
       v => v.code == statusCode
@@ -42,7 +45,7 @@ class Request {
    * @returns {*}
    */
   private checkSuccess(data: any, resolve) {
-    console.log("data", data);
+    // console.log("data", data);
     if (data instanceof ArrayBuffer && typeof data === "string") {
       return data;
     }
@@ -58,17 +61,6 @@ class Request {
    * @param options
    * @returns {Promise}
    */
-  private getRequestFuc = options =>
-    ({
-      weapp: new Promise((resolve, reject) => {
-        Taro.request(options)
-          .then(this.checkHttpStatus)
-          .then(res => this.checkSuccess(res, resolve))
-          .catch(error => throwError(error.errMsg, reject));
-      }),
-      h5: () => {},
-      alipay: () => {}
-    }[this.env]);
   public request(options: API.RequrestParams) {
     const { url, header: optionsHeader } = options;
     const { header: defaultOptionsHeader } = this.defaultOptions;
@@ -83,8 +75,12 @@ class Request {
         token
       }
     };
-    console.log(newOptions);
-    return this.getRequestFuc(newOptions);
+    return new Promise((resolve, reject) => {
+      Taro.request(newOptions)
+        .then(this.checkHttpStatus)
+        .then(res => this.checkSuccess(res, resolve))
+        .catch(error => throwError(error.errMsg, reject));
+    });
   }
 
   public get = ({ url, data }: API.RequrestParams) =>
@@ -99,4 +95,4 @@ class Request {
 
 // export const AlipayRequest = new Request("alipay");
 
-export default new Request()
+export default new Request();

@@ -1,17 +1,23 @@
 // mock相关
 // 命令行执行：gulp mock 可以启动mock服务
-
 const path = require("path");
 const gulp = require("gulp");
 const nodemon = require("gulp-nodemon");
 const browserSync = require("browser-sync").create();
-
 const server = path.resolve(__dirname, "mock");
+
 // browser-sync配置，配置里启动nodemon任务
 gulp.task("browser-sync", ["nodemon"], function() {
-  browserSync.init(null, {
-    proxy: "http://localhost:10086", // 这里的端口和webpack的端口一致
-    port: 8081
+  browserSync.init({
+    // 配置server
+    server: {
+      // server的基础路径
+      baseDir: "./mock",
+    },
+    // 定义host
+    // host: config.host,
+    // 设置端口
+    port: 8099
   });
 });
 // browser-sync 监听文件
