@@ -28,12 +28,14 @@ class App extends Component {
         {
           pagePath: 'pages/index/index',
           text: '首页',
-          iconPath: 'assets/image/logo.png',
+          iconPath: "./assets/image/tab_home.png",
+          selectedIconPath: "./assets/image/tab_home_f.png"
         },
         {
           pagePath: "pages/center/center",
           text: '中心',
-          iconPath: 'assets/image/logo.png',
+          iconPath: "./assets/image/tab_me.png",
+          selectedIconPath: "./assets/image/tab_me_f.png"
         },
       ]
     },
