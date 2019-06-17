@@ -2,6 +2,7 @@ const jsonServer = require("json-server");
 const db = require("./db.js");
 const routes = require("./routes.js");
 
+const host = 'localhost'
 const port = 3000;
 const server = jsonServer.create();
 const router = jsonServer.router(db);
@@ -15,9 +16,9 @@ server.use((request, res, next) => {
   next();
 });
 
-// 添加一个750ms的延迟
+// 添加一个500ms的延迟
 server.use((request, res, next) => {
-  setTimeout(next, 750);
+  setTimeout(next, 500);
 });
 
 // To handle POST, PUT and PATCH you need to use a body-parser
@@ -25,7 +26,6 @@ server.use((request, res, next) => {
 // server.use(jsonServer.bodyParser);
 server.use(rewriter); // 注意：rewriter 的设置一定要在 router 设置之前
 server.use(router);
-const host = 'localhost'
 server.listen({ host, port }, () => {
   console.log(`open mock server at ${host}:${port}`);
 });

@@ -1,5 +1,22 @@
 "use strict";
 const path = require("path");
+
+// NOTE 在 sass 中通过别名（@ 或 ~）引用需要指定路径
+const sassImporter = function(url) {
+  if (url[0] === "~" && url[1] !== "/") {
+    return {
+      file: path.resolve(__dirname, "..", "node_modules", url.substr(1))
+    };
+  }
+
+  const reg = /^@styles\/(.*)/;
+  return {
+    file: reg.test(url)
+      ? path.resolve(__dirname, "..", "src/styles", url.match(reg)[1])
+      : url
+  };
+};
+
 var config = {
   projectName: "taro-best-cli",
   date: "2019-06-08",
@@ -15,6 +32,9 @@ var config = {
         "transform-decorators-legacy",
         "transform-object-rest-spread"
       ]
+    },
+    sass: {
+      importer: sassImporter
     }
   },
   defineConstants: {},
@@ -47,7 +67,7 @@ var config = {
     "@/utils": path.resolve(__dirname, "..", "src/utils"),
     "@/services": path.resolve(__dirname, "..", "src/services"),
     "@/typings": path.resolve(__dirname, "..", "src/typings"),
-    "@/style": path.resolve(__dirname, "..", "src/style"),
+    "@/styles": path.resolve(__dirname, "..", "src/styles"),
   },
   // 编译 h5 源码 wenpack 配置
   h5: {
@@ -86,6 +106,9 @@ var config = {
           enable: true
         }
       }
+    },
+    sassLoaderOption: {
+      importer: sassImporter
     }
   }
 };

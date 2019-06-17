@@ -5,7 +5,7 @@ import { Provider } from "@tarojs/redux";
 import Index from "./pages/index/index";
 
 import "./app.scss";
-import "./assets/icon.css";
+import "@/styles/common/icon.css";
 import store from "./store/index";
 // const backgroundAudioManager = Taro.getBackgroundAudioManager();
 
@@ -33,7 +33,7 @@ class App extends Component {
         },
         {
           pagePath: "pages/center/center",
-          text: '中心',
+          text: '我的 ',
           iconPath: "./assets/image/tab_me.png",
           selectedIconPath: "./assets/image/tab_me_f.png"
         },

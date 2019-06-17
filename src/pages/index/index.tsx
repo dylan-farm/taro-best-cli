@@ -11,14 +11,21 @@ interface TabItem {
   id: number;
   title: string;
 }
+
+interface IndexItemProps {
+  id: any;
+  image: string;
+  title: string;
+  author: string;
+};
 interface IndexStates {
   activeTab: number;
   tabs: Array<TabItem>;
 }
 interface IndexProps {
-  newBooks: Array<object>;
-  hotBooks: Array<object>;
-  recommendBooks: Array<object>;
+  newBooks: Array<IndexItemProps>;
+  hotBooks: Array<IndexItemProps>;
+  recommendBooks: Array<IndexItemProps>;
   dispatch: any;
 }
 
@@ -29,16 +36,23 @@ class Index extends Component<IndexProps, IndexStates> {
   config = {
     navigationBarTitleText: "首页"
   };
-  componentDidMount(){
-    this.init()
+  componentDidMount() {
+    this.init();
   }
   init() {
     const { dispatch } = this.props;
     dispatch(Action("home/getNewBooks"));
     dispatch(Action("home/getHotBooks"));
     dispatch(Action("home/getRecommendBooks"));
-    console.log(this.props)
   }
+
+  static defaultProps = {
+    newBooks: [],
+    hotBooks: [],
+    recommendBooks: [],
+    dispatch: () => {}
+  };
+
   render() {
     return (
       <View className="play-wrapper wrapper">

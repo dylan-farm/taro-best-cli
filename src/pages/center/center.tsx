@@ -1,8 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View } from "@tarojs/components";
+import { View, Text } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 import action from "@/utils/action";
-import Loading from "@/components/loading";
 
 import "./center.scss";
 
@@ -31,7 +30,11 @@ class Center extends Component<CenterProps, {}> {
   }
 
   render() {
-    return <View className="recommend-wrapper">Center</View>;
+    return (
+      <View className="center-wrapper">
+        <Text>Hello, World</Text>
+      </View>
+    );
   }
 }
 

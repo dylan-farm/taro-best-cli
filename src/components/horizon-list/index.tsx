@@ -1,18 +1,21 @@
-import Taro, { Component } from "@tarojs/taro";
+import Taro, { Component, arrayBuffer } from "@tarojs/taro";
 import { View, ScrollView, Navigator, Image } from "@tarojs/components";
-// import URL from "../../constants/urls";
-import PropTypes from 'prop-types'
 import "./index.scss";
+interface ItemProps {
+  id: any;
+  image: string;
+  title: string;
+  author: string;
+};
 
-export default class HorizonList extends Component {
+interface HorizonListProps {
+  isBook: boolean;
+  data: Array<ItemProps>;
+  sideSpace: number; // 组件左侧到屏幕左侧的间距，单位为rpx
+}
+export default class HorizonList extends Component<HorizonListProps, {}> {
   static options = {
     addGlobalClass: true
-  };
-
-  static propTypes = {
-    isBook: PropTypes.bool,
-    data: PropTypes.arrayOf(PropTypes.object),
-    sideSpace: PropTypes.number // 组件左侧到屏幕左侧的间距，单位为rpx
   };
 
   static defaultProps = {
@@ -21,27 +24,23 @@ export default class HorizonList extends Component {
     sideSpace: 24
   };
 
-  componentWillMount() {}
-
   render() {
     const { isBook, data, sideSpace } = this.props;
-    // const url = isBook ? URL.BOOK_DETAIL : URL.BOOK_LIST_DETAIL;
-
     // 以rpx为单位计算图片宽高
     let imgWidth, imgHeight;
     imgWidth = (750 - 24 * 2 - sideSpace * 2) / 3; // 24是两张图片之间的距离
     imgHeight = (imgWidth * 300) / 218; // 图片宽高比为218/300
 
     return (
-      <ScrollView className='my-horizon-list-container' scrollX>
-        <View className='my-horizon-list'>
+      <ScrollView className="my-horizon-list-container" scrollX>
+        <View className="my-horizon-list">
           {data.map(item => {
             return (
               <Navigator
                 key={item.id}
                 // url={`${url}?id=${item.id}`}
-                className='my-horizon-list-item'
-                hoverClass='None'
+                className="my-horizon-list-item"
+                hoverClass="None"
                 style={{ width: Taro.pxTransform(imgWidth) }}
               >
                 <Image
@@ -57,13 +56,13 @@ export default class HorizonList extends Component {
                       : Taro.pxTransform(imgWidth)
                   }}
                   src={item.image}
-                  mode='aspectFill'
+                  mode="aspectFill"
                 />
-                <View className='my-horizon-list-item__title'>
+                <View className="my-horizon-list-item__title">
                   {item.title}
                 </View>
                 {isBook && (
-                  <View className='my-horizon-list-item__author'>
+                  <View className="my-horizon-list-item__author">
                     {item.author}
                   </View>
                 )}

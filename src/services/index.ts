@@ -1,4 +1,4 @@
-import request from "./request/api";
+import request from "@/utils/request/api";
 
 // getBooks
 export function getBooks() {
