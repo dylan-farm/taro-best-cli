@@ -1,15 +1,17 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Text } from "@tarojs/components";
+// import { View, Text, Button, Image } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 import action from "@/utils/action";
-
+import ShareImage from "./components/ShareImage/ShareImage";
+import DefaultRender from "./components/DefaultRender/DefaultRender";
 import "./center.scss";
+import { View } from "@tarojs/components";
 
 interface CenterProps {
   center: any;
   dispatch: any;
 }
-
+const env = Taro.getEnv();
 @connect(({ center }) => ({
   center
 }))
@@ -19,22 +21,16 @@ class Center extends Component<CenterProps, {}> {
   };
   constructor() {
     super(...arguments);
+    this.state = {};
   }
-
   componentDidShow() {
     this.props.dispatch(action("center/getBooks"));
-    console.log(this.props);
   }
   navigateTo(url: string) {
     Taro.navigateTo({ url: url });
   }
-
   render() {
-    return (
-      <View className="center-wrapper">
-        <Text>Hello, World</Text>
-      </View>
-    );
+    return <View>{env == "WEAPP" ? <ShareImage /> : <DefaultRender />}</View>;
   }
 }
 
