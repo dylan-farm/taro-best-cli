@@ -38,7 +38,6 @@ export default class HorizonList extends Component<HorizonListProps, {}> {
             return (
               <Navigator
                 key={item.id}
-                // url={`${url}?id=${item.id}`}
                 className="my-horizon-list-item"
                 hoverClass="None"
                 style={{ width: Taro.pxTransform(imgWidth) }}
