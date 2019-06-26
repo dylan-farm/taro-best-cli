@@ -25,11 +25,11 @@
 
 - Taro
 - Taro UI
-- TypeScript
-- Dva（ Redux ）
-- seamless-immutable
-- json-server
-- mockjs
+- TypeScript **为 JavaScript 的开发增加了静态类型、类、模块、接口和类型注解。**
+- Dva（ Redux ） **基于 redux 最佳实践实现的 framework，简化使用 redux 和 redux-saga 的操作。**
+- seamless-immutable **配合redux为项目的数据状态管理带来极大的性能提升。**
+- json-server **更好的分工合作，让前端能在不依赖后端环境的情况下进行开发**
+- mockjs **生成随机数据，简单方便, 无侵入性, 基本覆盖常用的接口数据类型。**
 
 ## 运行
 
