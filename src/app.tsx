@@ -1,14 +1,14 @@
 import "@tarojs/async-await";
 import Taro, { Component, Config } from "@tarojs/taro";
-import { Provider } from "@tarojs/redux";
-
+import Redux from "@tarojs/redux";
+import store from "./store/index";
 import Index from "./pages/index/index";
-
+if (Taro.getEnv() == "WEAPP") {
+  const { Provider, setStore } = Redux;
+  setStore(store)
+}
 import "./app.scss";
 import "@/styles/common/icon.css";
-import store from "./store/index";
-// const backgroundAudioManager = Taro.getBackgroundAudioManager();
-
 class App extends Component {
   config: Config = {
     pages: ["pages/index/index", "pages/center/center"],

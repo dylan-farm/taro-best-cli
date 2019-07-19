@@ -31,7 +31,7 @@ export default {
     {
       x: 80,
       y: 500,
-      text: "【毛豆新车网】首付3000元起开新车！新车首付低、门槛低、月供低。",
+      text: "生活是一场没有大戏的谢幕",
       fontSize: 32,
       color: "#000",
       opacity: 1,
@@ -72,7 +72,7 @@ export default {
   images: [
     {
       url:
-        "https://sta.maodou.com/xinche_web/static/images/overlay_bg.ca348206.png",
+        "http://pic18.nipic.com/20111223/9040884_155249347302_2.jpg",
       width: 670,
       height: 400,
       y: 40,
