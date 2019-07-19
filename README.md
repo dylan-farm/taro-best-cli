@@ -1,4 +1,27 @@
-# taro-best-cli
+<h1 align="center">Welcome to taro-best-cli 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/dylan-farm/taro-best-cli">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+  </a>
+</p>
+
+### 🏠 [Homepage](https://github.com/dylan-farm/taro-best-cli)
+
+
+## Author
+
+👤 **dylan-farm**
+
+* Github: [@dylan-farm](https://github.com/dylan-farm)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/dylan-farm/taro-best-cli/issues).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
 
 
 ## 快速开始
@@ -195,3 +218,6 @@ $ gulp mock
 * [ ] 弱网请求失败时自动发起api重试
 * [ ] 实战接入日志平台
 
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
