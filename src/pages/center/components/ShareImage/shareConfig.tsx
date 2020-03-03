@@ -72,7 +72,7 @@ export default {
   images: [
     {
       url:
-        "http://pic18.nipic.com/20111223/9040884_155249347302_2.jpg",
+        "http://i2.chinanews.com/simg/cmshd/2019/08/29/0da90716d62f4e3faa47e8177aef3fee.jpg",
       width: 670,
       height: 400,
       y: 40,
@@ -82,7 +82,7 @@ export default {
     },
     {
       url:
-        "https://sta.maodou.com/xinche_web/static/images/ewm-public.883dd2cb.jpg",
+        "http://i2.chinanews.com/simg/cmshd/2019/08/29/0da90716d62f4e3faa47e8177aef3fee.jpg",
       width: 110,
       height: 110,
       y: 645,
